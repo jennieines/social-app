@@ -1,0 +1,7 @@
+.navbar {
+  padding: 0;
+}
+
+.divider {
+  margin: var(--mantine-spacing-md) -1rem;
+}
