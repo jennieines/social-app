@@ -1,5 +1,3 @@
-import { getPlaiceholder } from "plaiceholder";
-
 const getImageMetadata = async (url: string) => {
   const imageSource = await fetch(
     url.replace(
@@ -9,10 +7,9 @@ const getImageMetadata = async (url: string) => {
   );
   const imageArrayBuffer = await imageSource.arrayBuffer();
 
-  const {
-    metadata: { height, width },
-    base64: blurDataUrl,
-  } = await getPlaiceholder(imageArrayBuffer, { size: 10 });
+  const height = 0;
+  const width = 0;
+  const blurDataUrl = "data:";
 
   return {
     width,
