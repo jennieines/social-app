@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
-    "@apollo/experimental-nextjs-app-support": "^0.5.1",
+    "@apollo/experimental-nextjs-app-support": "^0.8.0",
     "@auth/core": "^0.18.0",
     "@auth/hasura-adapter": "^0.2.4",
     "@auth/pg-adapter": "^0.2.3",

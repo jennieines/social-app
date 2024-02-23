@@ -38,7 +38,7 @@ const documents = {
     "\n  mutation DeletePostReaction_Mutation(\n    $postId: uuid!\n    $userId: uuid!\n    $type: String!\n  ) {\n    deletePostReactions(\n      where: {\n        postId: { _eq: $postId }\n        reactorId: { _eq: $userId }\n        type: { _eq: $type }\n      }\n    ) {\n      affectedRows\n    }\n  }\n": types.DeletePostReaction_MutationDocument,
     "\n  mutation CreateRootComment_Mutation(\n    $body: String!\n    $authorId: uuid!\n    $postId: uuid!\n    $objectCommentId: uuid\n  ) {\n    insertCommentsOne(\n      object: {\n        body: $body\n        authorId: $authorId\n        postId: $postId\n        objectCommentId: $objectCommentId\n      }\n    ) {\n      id\n      ...PostCard_CommentFragment\n    }\n  }\n": types.CreateRootComment_MutationDocument,
     "\n  fragment PostComposer_PostFragment on Posts {\n    id\n    createdAt\n    updatedAt\n  }\n": types.PostComposer_PostFragmentFragmentDoc,
-    "\n  mutation CreatePost_Mutation($body: String!, $authorId: uuid!) {\n    insertPostsOne(object: { body: $body, authorId: $authorId }) {\n      id\n      ...PostComposer_PostFragment\n    }\n  }\n": types.CreatePost_MutationDocument,
+    "\n  mutation CreatePost_Mutation($body: String!) {\n    insertPostsOne(object: { body: $body }) {\n      id\n      ...PostComposer_PostFragment\n    }\n  }\n": types.CreatePost_MutationDocument,
     "\n  mutation AddImageToPost_Mutation($postId: uuid!, $imageId: uuid!) {\n    insertPostImageRelationshipsOne(\n      object: { postId: $postId, imageId: $imageId }\n    ) {\n      id\n      post {\n        ...PostCard_PostFragment\n      }\n    }\n  }\n": types.AddImageToPost_MutationDocument,
     "\n  fragment ProfileImageSettingsSection_UserFragment on Users {\n    id\n    image\n    profileImage {\n      ...ImageUploadButton_ImageFragment\n    }\n  }\n": types.ProfileImageSettingsSection_UserFragmentFragmentDoc,
     "\n  query ProfileImageSettingsSection_UserQuery($userId: uuid!) {\n    usersByPk(id: $userId) {\n      id\n      ...ProfileImageSettingsSection_UserFragment\n    }\n  }\n": types.ProfileImageSettingsSection_UserQueryDocument,
@@ -176,7 +176,7 @@ export function graphql(source: "\n  fragment PostComposer_PostFragment on Posts
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation CreatePost_Mutation($body: String!, $authorId: uuid!) {\n    insertPostsOne(object: { body: $body, authorId: $authorId }) {\n      id\n      ...PostComposer_PostFragment\n    }\n  }\n"): (typeof documents)["\n  mutation CreatePost_Mutation($body: String!, $authorId: uuid!) {\n    insertPostsOne(object: { body: $body, authorId: $authorId }) {\n      id\n      ...PostComposer_PostFragment\n    }\n  }\n"];
+export function graphql(source: "\n  mutation CreatePost_Mutation($body: String!) {\n    insertPostsOne(object: { body: $body }) {\n      id\n      ...PostComposer_PostFragment\n    }\n  }\n"): (typeof documents)["\n  mutation CreatePost_Mutation($body: String!) {\n    insertPostsOne(object: { body: $body }) {\n      id\n      ...PostComposer_PostFragment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
